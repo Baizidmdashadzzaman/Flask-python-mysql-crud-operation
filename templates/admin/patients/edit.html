@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="content" style="transform: none; min-height: 32.969px;">
+				<div class="container-fluid" style="transform: none;">
+												<div class="row" style="transform: none;">
+
+
+                            {% include 'patient/nav.html' %}
+
+
+
+					<div class="col-md-7 col-lg-8 col-xl-9">
+
+                        <div class="prescribe-download" style="padding-bottom:50px">
+                            <a href="{{ url_for('patients_list') }}" style="float:right" class="btn btn-primary prime-btn bn">
+                                রোগীদের তালিকা পৃষ্ঠায় ফিরে যান
+                            </a>
+                         </div>
+
+                        <h3 class="blog-title"><font size="6" class="bn">
+                            রোগীর তথ্য এডিট করুন
+                        </font></h3>
+
+                        <div class="blog-view">
+                            <div class="blog blog-single-post">
+
+
+                                <form action="/patients/edit/{{ patient.id }}" method="POST" >
+                                    <div class="row form-row">
+                                       <div class="col-12 col-md-12">
+                                          <div class="form-group">
+                                             <div class="change-avatar">
+                                             </div>
+                                          </div>
+                                       </div>
+                                        <div class="col-12 col-md-12">
+                                           <div class="form-group" style="margin-right: 5px;">
+                                               <label for="age" class='bn' style="font-size:20px">রোগীর নাম</label>
+                                               <input type="text" id="username" name="username" class="form-control" placeholder="আপনার ডেটা পূরণ করুন" value="{{ patient.username }}">
+                                           </div>
+                                        </div>
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group" style="margin-right: 5px;">
+                                                <label for="age" class='bn' style="font-size:20px">ইমেইল</label>
+                                                <input type="email" id="email" name="email" class="form-control" placeholder="আপনার ডেটা পূরণ করুন" value="{{ patient.email }}">
+                                            </div>
+                                         </div>
+                                         <div class="col-12 col-md-12">
+                                            <div class="form-group" style="margin-right: 5px;">
+                                                <label for="age" class='bn' style="font-size:20px">পাসওয়ার্ড</label>
+                                                <input type="password" id="password" name="password" class="form-control" placeholder="আপনার ডেটা পূরণ করুন" value="{{ patient.password }}">
+                                            </div>
+                                         </div>
+                                    </div>
+                                    <div class="submit-section">
+                                       <button type="submit" class="btn btn-primary "><font size="5" class="bn" color="black">এডিট করুন ?</font></button>
+                                    </div>
+                                 </form>
+
+
+
+                            </div>                        
+                        </div>
+
+
+
+                    </div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+{% endblock %}
+
+
