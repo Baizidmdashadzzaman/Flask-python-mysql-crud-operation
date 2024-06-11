@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<div class="content" style="transform: none; min-height: 32.969px;">
+				<div class="container-fluid" style="transform: none;">
+												<div class="row" style="transform: none;">
+
+						<!-- Profile Sidebar -->
+                            {% include 'patient/nav.html' %}
+						<!-- / Profile Sidebar -->
+
+
+					<div class="col-md-7 col-lg-8 col-xl-9">
+
+                        <div class="prescribe-download" style="padding-bottom:50px">
+                            <a href="{{ url_for('patients_add') }}" style="float:right" class="btn btn-primary prime-btn bn">
+                                নতুন রোগী যোগ করুন
+                            </a>
+                         </div>
+
+                        <h3 class="blog-title"><font size="6" class="bn">
+                            রোগীদের তালিকা
+                        </font></h3>
+
+                        <div class="blog-view">
+                            <div class="blog blog-single-post">
+
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col" class="bn">আইডি</th>
+                                        <th scope="col" class="bn">ব্যবহারকারীর নাম</th>
+                                        <th scope="col" class="bn">ইমেইল</th>
+                                        <th scope="col" class="bn">অ্যাকশন</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for patient in patients %}
+                                      <tr>
+                                        <th class="bn" scope="row">{{patient.id}}</th>
+                                        <td class="bn" >{{ patient.username }}</td>
+                                        <td class="bn" >{{ patient.email }}</td>
+                                        <td class="bn" >
+                                            <a class="bn btn btn-primary" href="/patients/edit/{{ patient.id }}">এডিট</a> 
+                                            <a class="bn btn btn-primary" href="/patients/delete/{{ patient.id }}">ডিলিট</a>
+                                        </td>
+                                      </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                  </table>
+
+
+
+                            </div>                        
+                        </div>
+
+
+
+                    </div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+{% endblock %}
+
+
